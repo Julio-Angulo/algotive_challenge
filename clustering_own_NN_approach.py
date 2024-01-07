@@ -135,7 +135,7 @@ def create_model(num_classes):
 
 def image_feature(direc, num_clusters):
     """
-    Extract features of all images using InceptionV3
+    Extract features of all images using my own NN model
 
     Args:
         direc (list) List of images.
