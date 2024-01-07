@@ -1,3 +1,10 @@
 __pycache__/
 image_test/
-clusters_detected/
+clusters_detected_2/
+clusters_detected_1677_inceptionv3/
+clusters_detected_200/
+clusters_detected_1677_custom/
+model_c200.keras
+model_c1677.keras
+dataset_classes_1677/
+dataset_classes_200/

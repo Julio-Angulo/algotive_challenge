@@ -7,14 +7,14 @@ from tensorflow.keras.preprocessing.image import img_to_array
 import numpy as np
 
 
-def create_sub_folders(direc, dataset_classes, is_test):
+def create_sub_folders(direc, dataset_classes, num_clusters):
     """
     Create subfolders of all classes
 
     Args:
         direc (list) List of images.
         dataset_classes (string) name of the new folder containing all subfolders
-        is_test (bool) It's a test or not
+        num_clusters (int) number of clusters
     Returns:
         None
     """
@@ -27,7 +27,7 @@ def create_sub_folders(direc, dataset_classes, is_test):
             path = "image_test" + "/" + i
             slash_split = path.split("/")
             underscore_split = slash_split[1].split("_")
-            if not is_test:
+            if num_clusters == 1677:
                 class_detected = underscore_split[0] + "_" + underscore_split[1]
             else:
                 class_detected = underscore_split[0]
@@ -133,17 +133,23 @@ def create_model(num_classes):
     return model
 
 
-def image_feature(direc):
+def image_feature(direc, num_clusters):
     """
     Extract features of all images using InceptionV3
 
     Args:
         direc (list) List of images.
+        num_clusters (int) number of clusters
     Returns:
         features (list) list containing features of images
         img_name (list) list containing image names
     """
-    model = tf.keras.models.load_model("my_model.keras")
+    if num_clusters == 200:
+        model = tf.keras.models.load_model("model_c200.keras")
+        model.summary()
+    else:
+        model = tf.keras.models.load_model("model_c1677.keras")
+        model.summary()
     model.pop()
 
     features = []

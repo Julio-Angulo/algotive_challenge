@@ -71,7 +71,7 @@ def main(option):
         )
 
         # Train the model
-        model.fit(train_ds, validation_data=val_ds, epochs=3)
+        model.fit(train_ds, validation_data=val_ds, epochs=20)
         # Save Keras model
         model.save("my_model.keras")
 
@@ -88,6 +88,21 @@ def main(option):
             "clusterid"
         ] = clusters.labels_  # To mention which image belong to which cluster
         print(image_cluster)
+
+        # Made folder to separate images
+        os.mkdir("clusters_detected/")
+        for i in range(k):
+            os.mkdir("clusters_detected/" + str(i))
+
+        # Images will be separated according to cluster they belong
+        for i in range(len(image_cluster)):
+            for j in range(k):
+                if image_cluster["clusterid"][i] == j:
+                    shutil.copy(
+                        os.path.join("image_test", image_cluster["image"][i]),
+                        "clusters_detected/" + str(j),
+                    )
+                    continue
 
     # 4. Clustering by colors available (yellow, orange, black, blue, white, green, red, and gray )
     if option == 4:
