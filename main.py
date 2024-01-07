@@ -5,11 +5,7 @@ import os
 import shutil
 import time
 
-import classical_cv_approach
 import clustering_approach
-import ml_supervised_approach
-import supervised_and_unsupervised_approach
-import dominant_colours
 import dominant_colours_segmentation
 
 
