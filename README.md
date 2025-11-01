@@ -59,7 +59,7 @@ Previously, I used [1] NN model with great performance results. Therefore, I giv
 
 So, taking into account the results described above of 2nd vs 4th approaches:
 
-- Speedup = 5400/53 = ~102X
+- Speedup = 5400/53 = ~102X.
 
 Additionally, inceptionV3 has ~24 million of parameters. Whereas, my NN model has ~4 million of parameters.
 
